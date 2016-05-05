@@ -1,17 +1,21 @@
 import java.io.*;
 import java.net.*;
+import java.lang.*;
 
-class Inet{
-	public static void main(String a[]){
-		try{
-			InetAddress ip = InetAddress.getByName("www.google.com");
+class InetAddress{
+	public static void main(String a[])throws unknownHostException {
+		
+			InetAddress Address = InetAddress.getLocalHost();
+			System.out.println(Address);
 
-			System.out.println("Host Name : "+ ip.getHostName());
-			System.out.println("IP Address : "+ ip.getHostAddress());
+			Address = InetAddress.getByName("www.google.com");
+			System.out.println(Address);
 
-		}
-		catch(Exception e){
-			System.out.println(e);
-		}
+			InetAddress sw[] = InetAddress.getAllByName("www.yahoo.com");
+
+			for(int i = 0; i < sw.length; i++){
+				System.out.println(sw[i]);
+			}
+
 	}
 }
